@@ -1,6 +1,6 @@
 # freeboard
 
-> EntryDSM Vue TDD Example
+> A Vue.js project
 
 ## Build Setup
 
