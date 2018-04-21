@@ -1,7 +1,7 @@
 <template>
   <form id="signup">
     <vue-toastr ref="toastr"></vue-toastr>
-    <h1>회원가입</h1>
+    <h1 class="signup__title">회원가입</h1>
     <input class="signup__input-tag" type="text" placeholder="아이디" v-model="id">
     <input class="signup__input-tag" type="password" placeholder="비밀번호" v-model="pw">
     <input class="signup__input-tag" type="password" placeholder="비밀번호 재확인" v-model="checkPw">
@@ -42,12 +42,43 @@ export default {
 
 <style>
 #signup {
-  width: 700px;
+  width: 500px;
   margin: 0 auto;
   text-align: center;
+}
+.signup__title {
+  padding-top: 100px;
 }
 .signup__input-tag {
   display: block;
   width: 100%;
+  font-size: 20px;
+  border: 1px solid #BBB;
+  margin: 10px 0;
+  padding: 10px;
+  outline: none;
+  box-sizing: border-box;
+}
+.signup__input-tag:focus {
+  border-bottom: 2px solid #666;
+}
+.signup__btn {
+  font-size: 15px;
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  outline: none;
+  border: 1px solid #BBB;
+  background-color: #BBB;
+  box-sizing: border-box;
+}
+.signup__btn:hover {
+  background-color: #DDD;
+}
+.signup__btn:focus {
+  border: 2px solid #666;
+}
+.signup__btn:active {
+  background-color: #666;
 }
 </style>
