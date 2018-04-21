@@ -20,21 +20,21 @@ export default {
     };
   },
   computed: {
-    isNoMetterId() {
+    isMetterId() {
       return !this.id;
     },
-    isNoMetterPw() {
+    isMetterPw() {
       return !this.pw || !this.checkPw;
     },
-    isSamePw() {
+    isNotSamePw() {
       return this.pw !== this.checkPw;
     },
   },
   methods: {
     submitSignup() {
-      if (this.isNoMetterId) this.$refs.toastr.w('입력란이 비어있거나 잘못된 문자가 포함되어 있습니다', '잘못된 아이디');
-      else if (this.isNoMetterPw) this.$refs.toastr.w('입력란이 비어있거나 잘못된 문자가 포함되어 있습니다', '잘못된 비밀번호');
-      else if (this.isSamePw) this.$refs.toastr.w('비밀번호가 다릅니다');
+      if (this.isMetterId) this.$refs.toastr.w('입력란이 비어있거나 잘못된 문자가 포함되어 있습니다', '잘못된 아이디');
+      else if (this.isMetterPw) this.$refs.toastr.w('입력란이 비어있거나 잘못된 문자가 포함되어 있습니다', '잘못된 비밀번호');
+      else if (this.isNotSamePw) this.$refs.toastr.w('비밀번호가 다릅니다');
     },
   },
 };
