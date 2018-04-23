@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Signup from '@/components/Signup';
 import Login from '@/components/Login';
 import Main from '@/components/Main';
+import Post from '@/components/Post';
 import Toastr from 'vue-toastr';
 
 require('vue-toastr/src/vue-toastr.scss');
@@ -26,6 +27,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login,
+    },
+    {
+      path: '/post/:id',
+      name: 'post',
+      component: Post,
     },
   ],
 });
