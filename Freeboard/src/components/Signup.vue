@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'signup',
   data() {
@@ -32,9 +34,25 @@ export default {
   },
   methods: {
     submitSignup() {
+      if (this.checkValue()) {
+        axios.post('/signup', {
+          id: this.id,
+          pw: this.pw,
+        }).then((response) => {
+          if (response.status === 200) {
+            this.$router.push('/');
+          }
+        }).catch((error) => {
+          this.$refs.toastr.e(`status code ${error.response.status} ${error.response.statusText}`);
+        });
+      }
+    },
+    checkValue() {
       if (this.isMetterId) this.$refs.toastr.w('입력란이 비어있거나 잘못된 문자가 포함되어 있습니다', '잘못된 아이디');
       else if (this.isMetterPw) this.$refs.toastr.w('입력란이 비어있거나 잘못된 문자가 포함되어 있습니다', '잘못된 비밀번호');
       else if (this.isNotSamePw) this.$refs.toastr.w('비밀번호가 다릅니다');
+      else return true;
+      return false;
     },
   },
 };

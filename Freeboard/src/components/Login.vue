@@ -27,6 +27,9 @@ export default {
   },
   methods: {
     submitLogin() {
+      this.checkValue();
+    },
+    checkValue() {
       if (this.isEmptyId) this.$refs.toastr.w('아이디 입력란이 비어있습니다');
       else if (this.isEmptyPw) this.$refs.toastr.w('비밀번호 입력란이 비어있습니다');
     },
