@@ -6,6 +6,7 @@ import App from './App';
 import router from './router';
 
 Vue.config.productionTip = false;
+Vue.use(VueCookie);
 
 /* eslint-disable no-new */
 new Vue({
@@ -14,4 +15,3 @@ new Vue({
   components: { App },
   template: '<App/>',
 });
-Vue.use(VueCookie);
