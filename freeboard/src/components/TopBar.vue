@@ -17,17 +17,18 @@ export default {
     background-color: #272727;
     color: #ffffff;
     font-size: 30px;
-    line-height: 30px;
+    line-height: 40px;
     padding: 20px;
-    text-align: center;
+    text-align: left;
   }
 
   .top-bar__btn {
     float: right;
+    text-align: center;
     outline: none;
     border: 1px solid white;
     border-radius: 10px;
-    height: 30px;
+    height: 40px;
     width: 100px;
     background-color: #272727;
     color: white;
