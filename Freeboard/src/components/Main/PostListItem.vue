@@ -20,10 +20,16 @@ export default {
 
 <style scoped>
 .post-list-item {
-  border-bottom: #000 1px solid;
-  padding-left: 15px;
+  border: 1px solid #aaaaaa;
+  margin-top: 5px;
+  padding: 5px 20px;
   text-decoration: none;
   color: black;
+  font-size: 0;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.151);
+}
+.post-list-item:hover {
+  background-color: #cfcfcf;
 }
 .content-index, .content-title{
   display: inline-block;
@@ -33,5 +39,6 @@ export default {
   width: 30px;
 }
 .content-title{
+  margin-left: 50px;
 }
 </style>

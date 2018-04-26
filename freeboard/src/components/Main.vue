@@ -4,6 +4,7 @@
       <div class="post-list-container__header">
         <div class="index">No</div>
         <div class="title">title</div>
+        <router-link to="/write-post" class="write-post-button">Write Post</router-link>
       </div>
       <ul class="post-list">
         <li is="PostListItem"
@@ -37,13 +38,18 @@ export default {
 </script>
 
 <style scoped>
+.main {
+  padding: 60px 200px;
+}
 .post-list-container__header{
   padding-left: 15px;
-  border-bottom: #000 2px solid;
+  font-size: 0;
 }
 .index, .title{
   display: inline-block;
   font-size: 25px;
+  line-height: 40px;
+  margin-bottom: 10px;
 }
 .index{
   width: 30px;
@@ -51,6 +57,22 @@ export default {
 }
 .title{
   margin-left: 50px;
+}
+.write-post-button {
+  font-size: 20px;
+  line-height: 20px;
+  background-color: #272727;
+  text-decoration: none;
+  color: white;
+  border-radius: 10px;
+  float: right;
+  width: 150px;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.write-post-button:hover {
+  background-color: #464646;
 }
 .post-list {
   margin: 0;
