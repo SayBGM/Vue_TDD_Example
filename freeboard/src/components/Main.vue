@@ -1,22 +1,29 @@
 <template>
-  <div class="Main">
-    <div class="post-list">
-      <div class="post-header">
-        <div class="post-header__index">No</div>
-        <div class="post-header__title">title</div>
+  <div class="main">
+    <div class="post-list-container">
+      <div class="post-list-container__header">
+        <div class="index">No</div>
+        <div class="title">title</div>
       </div>
-        <Contents v-for="post in posts" :key="post.index" :post="post"/>
+      <ul class="post-list">
+        <li is="PostListItem"
+          v-for="post in posts"
+          :key="post.index"
+          :index="post.index"
+          :title="post.title"
+        ></li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
-import Contents from './Main/contents';
+import PostListItem from './Main/PostListItem';
 
 export default {
-  name: 'Main',
+  name: 'main',
   components: {
-    Contents,
+    PostListItem,
   },
   data() {
     return {
@@ -30,19 +37,24 @@ export default {
 </script>
 
 <style scoped>
-.post-header{
+.post-list-container__header{
   padding-left: 15px;
   border-bottom: #000 2px solid;
 }
-.post-header__index, .post-header__title{
+.index, .title{
   display: inline-block;
   font-size: 25px;
 }
-.post-header__index{
+.index{
   width: 30px;
   height: 20px;
 }
-.post-header__title{
+.title{
   margin-left: 50px;
+}
+.post-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 </style>
