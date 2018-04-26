@@ -20,11 +20,8 @@ export default {
     };
   },
   computed: {
-    isEmptyUsername() {
-      return !this.username;
-    },
-    isEmptyPassword() {
-      return !this.password;
+    isEmpty() {
+      return !(this.username && this.password);
     },
   },
   methods: {
@@ -35,7 +32,7 @@ export default {
           password: this.password,
         }).then((response) => {
           if (response.status === 200) {
-            localStorage.setItem('token', response.data.access_token);
+            this.$cookies.set('token', response.data.access_token, 60 * 60 * 12);
             this.$router.push('/');
           }
         }).catch((error) => {
@@ -44,11 +41,11 @@ export default {
       }
     },
     checkValue() {
-      if (this.isEmptyUsername) this.$refs.toastr.w('아이디 입력란이 비어있습니다');
-      else if (this.isEmptyPassword) this.$refs.toastr.w('비밀번호 입력란이 비어있습니다');
-      else return true;
-
-      return false;
+      if (this.isEmpty) {
+        this.$refs.toastr.w('아이디와 비밀번호 입력란을 모두 입력해주세요');
+        return false;
+      }
+      return true;
     },
   },
 };

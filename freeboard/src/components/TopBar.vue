@@ -1,14 +1,22 @@
 <template>
   <div id="top-bar">
-    Free Board
-    <router-link to="login" class="top-bar__btn">login</router-link>
-    <router-link to="signup" class="top-bar__btn">signup</router-link>
+    <router-link to="/" class="top-bar__logo">Free Board</router-link>
+    <div v-if="token" class="top-bar__btn">logout</div>
+    <template v-else>
+      <router-link to="login" class="top-bar__btn">login</router-link>
+      <router-link to="signup" class="top-bar__btn">signup</router-link>
+    </template>
   </div>
 </template>
 
 <script>
 export default {
   name: 'top-bar',
+  data() {
+    return {
+      token: '',
+    };
+  },
 };
 </script>
 
@@ -20,6 +28,11 @@ export default {
     line-height: 40px;
     padding: 20px;
     text-align: left;
+  }
+
+  .top-bar__logo {
+    text-decoration: none;
+    color: white;
   }
 
   .top-bar__btn {
